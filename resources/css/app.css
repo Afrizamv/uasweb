@@ -3,37 +3,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
+    --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
     --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
     --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    --sidebar-bg: #ffffff; /* clean white sidebar */
-    --body-bg: #f8fafc;
-    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
-    --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+    --sidebar-bg: rgba(15, 23, 42, 0.7); /* dark glass sidebar */
+    --body-bg: #030712;
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    --hover-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.15);
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--body-bg);
-    color: #1e293b;
+    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #030712 100%) !important;
+    color: #e2e8f0;
     overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(80px);
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(80px);
 }
 
 /* Glassmorphism sidebar */
 .sidebar {
-    background-color: var(--sidebar-bg);
-    background-image: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
-    color: #1e293b;
+    background-color: var(--sidebar-bg) !important;
+    backdrop-filter: blur(12px);
+    color: #e2e8f0;
     min-height: 100vh;
-    box-shadow: 4px 0 24px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 4px 0 24px 0 rgba(0, 0, 0, 0.3);
     z-index: 100;
-    border-right: 1px solid #e2e8f0;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .sidebar .nav-link {
-    color: #475569;
+    color: #94a3b8;
     font-weight: 500;
     padding: 0.8rem 1.5rem;
     margin: 0.2rem 1rem;
@@ -42,15 +72,15 @@ body {
 }
 
 .sidebar .nav-link:hover {
-    color: #1d4ed8;
-    background-color: #eff6ff;
+    color: #38bdf8;
+    background-color: rgba(255, 255, 255, 0.05);
     transform: translateX(5px);
 }
 
 .sidebar .nav-link.active {
     color: #ffffff;
     background: var(--primary-gradient);
-    box-shadow: 0 4px 12px 0 rgba(37, 99, 235, 0.25);
+    box-shadow: 0 4px 12px 0 rgba(124, 58, 237, 0.3);
 }
 
 .sidebar-brand {
@@ -190,38 +220,130 @@ body {
     z-index: 1050 !important;
 }
 
+/* Force dark mode glassmorphism card designs globally in layout */
+.card:not(.bg-gradient-primary):not(.bg-danger-subtle):not(.bg-warning-subtle):not(.bg-primary-subtle):not(.bg-success-subtle):not(.bg-info-subtle) {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #f1f5f9 !important;
+}
+
+/* Text color overrides for readability on dark background */
+.text-dark {
+    color: #f1f5f9 !important;
+}
+.text-muted, .text-secondary {
+    color: #94a3b8 !important;
+}
+.card-body, .card-title, h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+}
+.list-group-item {
+    background-color: transparent !important;
+    color: #f1f5f9 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Layout header & footer overrides for dark mode */
+header.navbar.bg-white {
+    background-color: rgba(15, 23, 42, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2) !important;
+}
+header.navbar .text-dark {
+    color: #ffffff !important;
+}
+header.navbar .text-secondary {
+    color: #38bdf8 !important; /* cyan page title */
+}
+header.navbar .bg-primary-subtle {
+    background-color: rgba(99, 102, 241, 0.15) !important;
+    color: #38bdf8 !important;
+    border-color: rgba(56, 189, 248, 0.25) !important;
+}
+footer.bg-white {
+    background-color: rgba(15, 23, 42, 0.4) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: #64748b !important;
+}
+
+/* Table overrides for dark mode */
+.table-responsive {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.table {
+    background-color: transparent !important;
+    color: #e2e8f0 !important;
+}
+.table th {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+    color: #94a3b8 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.table td {
+    background-color: transparent !important;
+    color: #e2e8f0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    color: #ffffff !important;
+}
+
 /* Override default Indigo colors to Blue theme */
 .text-indigo {
-    color: #2563eb !important;
+    color: #38bdf8 !important;
 }
 .bg-indigo-subtle, 
 .avatar-img.bg-indigo-subtle, 
 .rounded-circle.bg-indigo-subtle,
 div.bg-indigo-subtle[style],
 .bg-indigo-50 {
-    background-color: #dbeafe !important;
-    color: #2563eb !important;
+    background-color: rgba(99, 102, 241, 0.15) !important;
+    color: #38bdf8 !important;
 }
 .border-indigo-subtle,
 .border-indigo-subtle[style],
 .border-indigo-400 {
-    border-color: #bfdbfe !important;
+    border-color: rgba(56, 189, 248, 0.25) !important;
 }
 .text-indigo-700 {
-    color: #1d4ed8 !important;
+    color: #38bdf8 !important;
 }
 .bg-indigo-100 {
-    background-color: #eff6ff !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
 }
 .focus\:ring-indigo-500:focus,
 .focus\:ring-2:focus {
-    --tw-ring-color: #3b82f6 !important;
-    box-shadow: 0 0 0 2px #3b82f6 !important;
+    --tw-ring-color: #38bdf8 !important;
+    box-shadow: 0 0 0 2px #38bdf8 !important;
 }
 .focus\:border-indigo-500:focus,
 .focus\:border-indigo-700:focus {
-    border-color: #3b82f6 !important;
+    border-color: #38bdf8 !important;
 }
 .text-indigo:hover {
-    color: #1d4ed8 !important;
+    color: #7c3aed !important;
+}
+
+/* Calendar styling tweaks for dark mode */
+.fc-theme-bootstrap5 {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 1rem !important;
+    padding: 1rem !important;
+}
+.fc-theme-bootstrap5 td, .fc-theme-bootstrap5 th, .fc-theme-bootstrap5 .fc-scrollgrid {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+.fc .fc-col-header-cell {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+    color: #94a3b8 !important;
+}
+.fc-daygrid-day {
+    background-color: transparent !important;
+}
+.fc-day-today {
+    background-color: rgba(99, 102, 241, 0.1) !important;
 }
