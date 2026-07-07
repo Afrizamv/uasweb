@@ -13,25 +13,58 @@
             font-family: 'Plus Jakarta Sans', sans-serif !important;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+            background: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%) !important;
             border: none !important;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2) !important;
-            transition: all 0.2s ease !important;
+            box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.3) !important;
+            transition: all 0.3s ease !important;
         }
         .btn-primary:hover, .btn-primary:focus {
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3) !important;
-            transform: translateY(-1px) !important;
+            background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%) !important;
+            box-shadow: 0 6px 20px 0 rgba(124, 58, 237, 0.5) !important;
+            transform: translateY(-2px) !important;
+        }
+        .btn-outline-light {
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            transition: all 0.3s ease !important;
+        }
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            transform: translateY(-2px) !important;
         }
         .text-blue {
-            color: #60a5fa !important;
+            color: #38bdf8 !important;
         }
         .bg-blue-opacity {
-            background-color: rgba(96, 165, 250, 0.1) !important;
+            background-color: rgba(56, 189, 248, 0.1) !important;
+            border: 1px solid rgba(56, 189, 248, 0.2) !important;
+        }
+        .text-glow-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom animations and background orbs */
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+        .glowing-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+            animation: pulse-glow 8s infinite ease-in-out;
+            filter: blur(80px);
         }
     </style>
 </head>
-<body style="background: radial-gradient(circle at 80% 20%, #1e40af 0%, #030712 100%); color: #ffffff; min-height: 100vh; overflow-x: hidden;">
+<body style="background: radial-gradient(circle at 50% 50%, #0f172a 0%, #030712 100%); color: #ffffff; min-height: 100vh; overflow-x: hidden; position: relative;">
+    <!-- Background glowing orbs -->
+    <div class="glowing-orb" style="top: -150px; right: -150px; background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(0, 0, 0, 0) 70%);"></div>
+    <div class="glowing-orb" style="bottom: 10%; left: -250px; background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, rgba(0, 0, 0, 0) 70%);"></div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
@@ -61,7 +94,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-12 col-lg-6 text-center text-lg-start animate-fade-in-up">
                     <h1 class="display-3 fw-extrabold text-white mb-3" style="line-height: 1.15; letter-spacing: -1.5px;">
-                        Kelola Tugas Kuliah <span class="text-primary" style="background: linear-gradient(to right, #93c5fd, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Lebih Cerdas & Cepat</span>
+                        Kelola Tugas Kuliah <span class="text-glow-gradient">Lebih Cerdas & Cepat</span>
                     </h1>
                     <p class="lead text-white-50 mb-4 fw-normal">
                         StudySync membantu mahasiswa dari berbagai universitas mengatur tugas kuliah, melacak jadwal ujian/presentasi, menganalisis statistik studi, dan mendapatkan pengingat deadline otomatis secara real-time.
@@ -83,7 +116,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <!-- Feature Preview Board Mockup -->
-                    <div class="card border-0 rounded-4 shadow-lg p-3 animate-fade-in-up" style="background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1) !important; backdrop-filter: blur(10px);">
+                    <div class="card border-0 rounded-4 shadow-lg p-3 animate-fade-in-up" style="background: rgba(15, 23, 42, 0.65) !important; border: 1px solid rgba(99, 102, 241, 0.25) !important; backdrop-filter: blur(12px); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(56, 189, 248, 0.08) !important;">
                         <div class="d-flex gap-2 border-bottom border-secondary border-opacity-25 pb-3 mb-3">
                             <span class="rounded-circle bg-danger d-inline-block" style="width: 12px; height: 12px;"></span>
                             <span class="rounded-circle bg-warning d-inline-block" style="width: 12px; height: 12px;"></span>
@@ -93,21 +126,21 @@
                             <h5 class="fw-bold mb-1"><i class="bi bi-bell-fill text-warning me-2"></i>Deadline Reminder Aktif</h5>
                             <p class="text-white-50 small">Sistem SaaS kami mendeteksi deadline otomatis untuk Anda:</p>
                             <div class="list-group list-group-flush gap-2">
-                                <div class="list-group-item bg-transparent text-white border-0 p-2.5 rounded-3" style="background-color: rgba(239, 68, 68, 0.15) !important;">
+                                <div class="list-group-item bg-transparent text-white border-0 p-2.5 rounded-3" style="background-color: rgba(239, 68, 68, 0.12) !important; border: 1px solid rgba(239, 68, 68, 0.2) !important;">
                                     <div class="d-flex justify-content-between align-items-center mb-1">
                                         <strong class="small text-danger"><i class="bi bi-exclamation-octagon-fill me-1"></i>Sudah Lewat</strong>
                                         <span class="text-muted small">Kemarin</span>
                                     </div>
                                     <span class="small fw-semibold d-block">Laporan Praktikum: Transversal Binary Tree</span>
                                 </div>
-                                <div class="list-group-item bg-transparent text-white border-0 p-2.5 rounded-3" style="background-color: rgba(245, 158, 11, 0.15) !important;">
+                                <div class="list-group-item bg-transparent text-white border-0 p-2.5 rounded-3" style="background-color: rgba(245, 158, 11, 0.12) !important; border: 1px solid rgba(245, 158, 11, 0.2) !important;">
                                     <div class="d-flex justify-content-between align-items-center mb-1">
                                         <strong class="small text-warning"><i class="bi bi-exclamation-triangle-fill me-1"></i>Hari Ini (Urgent)</strong>
                                         <span class="text-muted small">Hari Ini 23:59</span>
                                     </div>
                                     <span class="small fw-semibold d-block">Tugas Pemrograman: Setup Laravel 12 CRUD</span>
                                 </div>
-                                <div class="list-group-item bg-transparent text-white border-0 p-2.5 rounded-3" style="background-color: rgba(16, 185, 129, 0.15) !important;">
+                                <div class="list-group-item bg-transparent text-white border-0 p-2.5 rounded-3" style="background-color: rgba(16, 185, 129, 0.12) !important; border: 1px solid rgba(16, 185, 129, 0.2) !important;">
                                     <div class="d-flex justify-content-between align-items-center mb-1">
                                         <strong class="small text-success"><i class="bi bi-clock-history me-1"></i>Besok</strong>
                                         <span class="text-muted small">Besok 10:00</span>
@@ -123,7 +156,7 @@
     </header>
 
     <!-- Feature Grid Section -->
-    <section class="py-5" style="background-color: rgba(0,0,0,0.2);">
+    <section class="py-5" style="background: linear-gradient(180deg, rgba(3, 7, 18, 0) 0%, rgba(15, 23, 42, 0.4) 100%); border-top: 1px solid rgba(255,255,255,0.03);">
         <div class="container py-5 text-center">
             <h2 class="fw-bold mb-5">Fitur Cerdas Unggulan</h2>
             <div class="row g-4">
