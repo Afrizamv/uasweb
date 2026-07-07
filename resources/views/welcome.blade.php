@@ -94,10 +94,10 @@
             <div class="row align-items-center g-5">
                 <div class="col-12 col-lg-6 text-center text-lg-start animate-fade-in-up">
                     <h1 class="display-3 fw-extrabold text-white mb-3" style="line-height: 1.15; letter-spacing: -1.5px;">
-                        Kelola Tugas Kuliah <span class="text-glow-gradient">Lebih Cerdas & Cepat</span>
+                        Asisten Cerdas <span class="text-glow-gradient">Manajemen Tugas Kuliah Anda</span>
                     </h1>
                     <p class="lead text-white-50 mb-4 fw-normal">
-                        StudySync membantu mahasiswa dari berbagai universitas mengatur tugas kuliah, melacak jadwal ujian/presentasi, menganalisis statistik studi, dan mendapatkan pengingat deadline otomatis secara real-time.
+                        StudySync membantu mahasiswa mengelola mata kuliah, mencatat tugas kuliah beserta lampiran berkas, memantau tenggat waktu di kalender interaktif, serta menganalisis progress belajar secara real-time.
                     </p>
                     <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
                         @auth
