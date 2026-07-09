@@ -15,7 +15,7 @@
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse px-0">
                 <div class="position-sticky pt-3">
                     <div class="px-4 py-3 mb-4 border-bottom border-secondary border-opacity-25 text-center">
-                        <span class="sidebar-brand"><i class="bi bi-mortarboard-fill me-2"></i>StudySync</span>
+                        <span class="sidebar-brand"><i class="bi bi-book-half me-2"></i>StudySync</span>
                     </div>
                     <ul class="nav flex-column">
                         @if(auth()->user()->isStudent())

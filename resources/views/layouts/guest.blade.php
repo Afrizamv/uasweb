@@ -100,7 +100,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
                 <div class="text-center mb-4">
-                    <h1 class="text-white fw-bold"><i class="bi bi-mortarboard-fill text-blue me-2"></i>StudySync</h1>
+                    <h1 class="text-white fw-bold"><i class="bi bi-book-half text-blue me-2"></i>StudySync</h1>
                     <p class="text-white-50">Smart Assignment Management</p>
                 </div>
                 <div class="card border-0 rounded-4 shadow-lg overflow-hidden animate-fade-in-up">
