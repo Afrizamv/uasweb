@@ -209,6 +209,7 @@ body {
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.15);
+    flex-shrink: 0 !important;
 }
 
 /* FullCalendar styling tweaks */
@@ -448,6 +449,18 @@ input[type="week"]::-webkit-calendar-picker-indicator {
     main {
         padding-left: 15px !important;
         padding-right: 15px !important;
+    }
+
+    /* Style tables inside table-responsive container to scroll horizontally on mobile */
+    .table-responsive {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .table-responsive table {
+        min-width: 800px !important;
+    }
+    .table th, .table td {
+        white-space: nowrap !important; /* Keep names and emails neat on a single line */
     }
 }
 

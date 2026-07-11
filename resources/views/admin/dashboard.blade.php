@@ -6,11 +6,11 @@
     <div class="row mb-4">
         <div class="col-12">
             <div class="card border-0 rounded-4 bg-gradient-primary text-dark p-4 shadow-sm position-relative overflow-hidden">
-                <div class="position-absolute end-0 bottom-0 opacity-10" style="font-size: 8rem; transform: translate(20px, 30px);">
+                <div class="position-absolute end-0 bottom-0" style="font-size: 8rem; transform: translate(20px, 30px); opacity: 0.25; pointer-events: none;">
                     <i class="bi bi-key-fill text-dark"></i>
                 </div>
                 <h2 class="fw-bold mb-1 text-dark">Admin</h2>
-                <p class="mb-0 text-dark opacity-75">Pantau aktivitas seluruh mahasiswa, kelola akun, dan awasi mata kuliah serta tugas secara terpusat.</p>
+                <p class="mb-0 text-dark opacity-75 pe-5" style="max-width: 80%;">Kelola data mahasiswa dan tugas.</p>
             </div>
         </div>
     </div>

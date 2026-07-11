@@ -5,11 +5,11 @@
     <div class="row mb-4">
         <div class="col-12">
             <div class="card border-0 rounded-4 bg-gradient-primary text-dark p-4 shadow-sm position-relative overflow-hidden">
-                <div class="position-absolute end-0 bottom-0 d-flex align-items-center justify-content-center" style="width: 150px; height: 150px; transform: translate(20px, 20px); mix-blend-mode: multiply; opacity: 0.45;">
+                <div class="position-absolute end-0 bottom-0 d-flex align-items-center justify-content-center" style="width: 150px; height: 150px; transform: translate(20px, 20px); mix-blend-mode: multiply; opacity: 0.35; pointer-events: none;">
                     <img src="{{ asset('images/logo.jpg') }}" alt="Watermark Logo" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
                 <h2 class="fw-bold mb-1 text-dark">Selamat Datang, {{ auth()->user()->name }}! 👋</h2>
-                <p class="mb-0 text-dark opacity-75">Kelola tugas kuliah Anda secara cerdas, pantau deadline, dan tingkatkan produktivitas belajar Anda.</p>
+                <p class="mb-0 text-dark opacity-75 pe-5" style="max-width: 80%;">Kelola tugas kuliah Anda dengan mudah.</p>
             </div>
         </div>
     </div>

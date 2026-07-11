@@ -215,7 +215,7 @@
     <!-- Footer -->
     <footer class="py-4 text-center border-top mt-5" style="background: #000000 !important; border-top: 1px solid rgba(255, 255, 255, 0.1) !important; color: #a1a1aa !important;">
         <div class="container small">
-            <span>&copy; {{ date('Y') }} StudySync – Smart Assignment Management (SaaS Laravel 12).</span>
+            <span>&copy; {{ date('Y') }} StudySync – Smart Assignment Management (SaaS).</span>
         </div>
     </footer>
 
