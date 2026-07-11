@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'StudySync') - Smart Assignment Management</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
@@ -15,7 +16,10 @@
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse px-0">
                 <div class="position-sticky pt-3">
                     <div class="px-4 py-3 mb-4 border-bottom border-secondary border-opacity-25 text-center">
-                        <span class="sidebar-brand"><i class="bi bi-book-half me-2"></i>StudySync</span>
+                        <span class="sidebar-brand d-flex align-items-center justify-content-center">
+                            <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="me-2 rounded-circle" style="width: 28px; height: 28px; object-fit: cover;">
+                            StudySync
+                        </span>
                     </div>
                     <ul class="nav flex-column">
                         @if(auth()->user()->isStudent())
@@ -113,7 +117,7 @@
                                             Premium
                                         </span>
                                     @else
-                                        <a href="{{ route('student.upgrade') }}" class="badge bg-secondary-subtle text-secondary border border-secondary rounded-pill small px-2.5 py-1 ms-1 text-decoration-none d-inline-flex align-items-center">
+                                        <a href="{{ route('student.upgrade') }}" class="badge bg-white text-black border border-white rounded-pill small px-2.5 py-1 ms-1 text-decoration-none d-inline-flex align-items-center">
                                             <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" class="me-1">
                                                 <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
                                             </svg>

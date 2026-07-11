@@ -4,12 +4,12 @@
 
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card border-0 rounded-4 bg-gradient-primary text-white p-4 shadow-sm position-relative overflow-hidden">
-                <div class="position-absolute end-0 bottom-0 opacity-10" style="font-size: 8rem; transform: translate(20px, 30px);">
-                    <i class="bi bi-mortarboard-fill"></i>
+            <div class="card border-0 rounded-4 bg-gradient-primary text-dark p-4 shadow-sm position-relative overflow-hidden">
+                <div class="position-absolute end-0 bottom-0 d-flex align-items-center justify-content-center" style="width: 150px; height: 150px; transform: translate(20px, 20px); mix-blend-mode: multiply; opacity: 0.45;">
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Watermark Logo" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
-                <h2 class="fw-bold mb-1">Selamat Datang, {{ auth()->user()->name }}! 👋</h2>
-                <p class="mb-0 text-white-50">Kelola tugas kuliah Anda secara cerdas, pantau deadline, dan tingkatkan produktivitas belajar Anda.</p>
+                <h2 class="fw-bold mb-1 text-dark">Selamat Datang, {{ auth()->user()->name }}! 👋</h2>
+                <p class="mb-0 text-dark opacity-75">Kelola tugas kuliah Anda secara cerdas, pantau deadline, dan tingkatkan produktivitas belajar Anda.</p>
             </div>
         </div>
     </div>
@@ -162,23 +162,23 @@
             <!-- Urgent Deadlines Overview -->
             <div class="row g-3">
                 <div class="col-md-6">
-                    <div class="card border-0 rounded-4 p-4 shadow-sm h-100 bg-warning-subtle border border-warning-subtle text-warning-emphasis">
+                    <div class="card border-0 rounded-4 p-4 shadow-sm h-100 bg-black" style="border: 1px solid #ef4444 !important;">
                         <div class="d-flex align-items-center mb-3">
-                            <i class="bi bi-exclamation-triangle-fill fs-2 me-3 text-warning"></i>
-                            <h5 class="fw-bold mb-0">Deadline Hari Ini</h5>
+                            <i class="bi bi-exclamation-octagon-fill fs-2 me-3 text-danger"></i>
+                            <h5 class="fw-bold mb-0 text-danger">Deadline Hari Ini</h5>
                         </div>
-                        <h2 class="fw-extrabold mb-2">{{ $deadlineTodayCount }}</h2>
-                        <p class="mb-0 text-secondary-emphasis small">Tugas mendesak yang harus dikumpulkan hari ini.</p>
+                        <h2 class="fw-extrabold mb-2 text-white">{{ $deadlineTodayCount }}</h2>
+                        <p class="mb-0 text-secondary small">Tugas mendesak yang harus dikumpulkan hari ini.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card border-0 rounded-4 p-4 shadow-sm h-100 bg-primary-subtle border border-primary-subtle text-primary-emphasis">
+                    <div class="card border-0 rounded-4 p-4 shadow-sm h-100 bg-black" style="border: 1px solid rgba(255, 255, 255, 0.15) !important;">
                         <div class="d-flex align-items-center mb-3">
-                            <i class="bi bi-calendar-check-fill fs-2 me-3 text-indigo"></i>
-                            <h5 class="fw-bold mb-0">Deadline Minggu Ini</h5>
+                            <i class="bi bi-calendar-check-fill fs-2 me-3 text-white"></i>
+                            <h5 class="fw-bold mb-0 text-white">Deadline Minggu Ini</h5>
                         </div>
-                        <h2 class="fw-extrabold mb-2">{{ $deadlineThisWeekCount }}</h2>
-                        <p class="mb-0 text-secondary-emphasis small">Tugas dengan batas waktu dalam 7 hari ke depan.</p>
+                        <h2 class="fw-extrabold mb-2 text-white">{{ $deadlineThisWeekCount }}</h2>
+                        <p class="mb-0 text-secondary small">Tugas dengan batas waktu dalam 7 hari ke depan.</p>
                     </div>
                 </div>
             </div>
