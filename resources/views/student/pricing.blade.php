@@ -31,7 +31,7 @@
                             <ul class="list-unstyled flex-grow-1 text-secondary">
                                 <li class="mb-3 d-flex align-items-center">
                                     <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <span>Maksimal 3 Mata Kuliah <strong class="text-white">({{ $subjectsCount }}/3)</strong></span>
+                                    <span>Maksimal 5 Mata Kuliah <strong class="text-white">({{ $subjectsCount }}/5)</strong></span>
                                 </li>
                                 <li class="mb-3 d-flex align-items-center">
                                     <i class="bi bi-check-circle-fill text-primary me-2"></i>
@@ -118,15 +118,21 @@
 
                             <div class="mt-4">
                                 @if($user->is_premium)
-                                    <button class="btn btn-warning w-100 py-2.5 rounded-3 fw-bold text-dark" disabled>
-                                        Premium Aktif
+                                    <button class="btn btn-warning w-100 py-2.5 rounded-3 fw-bold text-dark d-flex align-items-center justify-content-center" disabled>
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="me-2">
+                                            <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
+                                        </svg>
+                                        <span>Premium Aktif</span>
                                     </button>
                                 @else
                                     <form action="{{ route('student.upgrade.process') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="is_premium" value="1">
-                                        <button type="submit" class="btn btn-warning w-100 py-2.5 rounded-3 fw-bold text-dark transition shadow" style="background: var(--warning-gradient); border: none;">
-                                            Upgrade Sekarang
+                                        <button type="submit" class="btn btn-warning w-100 py-2.5 rounded-3 fw-bold text-dark transition shadow d-flex align-items-center justify-content-center" style="background: var(--warning-gradient); border: none;">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="me-2">
+                                                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
+                                            </svg>
+                                            <span>Upgrade Sekarang</span>
                                         </button>
                                     </form>
                                 @endif

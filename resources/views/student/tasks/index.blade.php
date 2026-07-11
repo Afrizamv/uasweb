@@ -3,14 +3,16 @@
     @section('page_title', 'Manajemen Tugas Kuliah')
 
     @if(!auth()->user()->is_premium)
-        <div class="alert alert-info border-0 rounded-4 d-flex flex-wrap justify-content-between align-items-center mb-4 p-3" style="background: rgba(14, 165, 233, 0.1) !important; border: 1px solid rgba(14, 165, 233, 0.2) !important;">
+        <div class="alert alert-info border-0 rounded-4 d-flex flex-wrap justify-content-between align-items-center mb-4 p-3" style="background: rgba(245, 158, 11, 0.1) !important; border: 1px solid rgba(245, 158, 11, 0.2) !important;">
             <div class="d-flex align-items-center">
-                <div class="rounded-circle p-2 bg-info-subtle text-info me-3">
-                    <i class="bi bi-info-circle-fill fs-5"></i>
+                <div class="rounded-circle p-2 bg-warning-subtle text-warning me-3 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
+                    </svg>
                 </div>
                 <div>
                     <h6 class="text-white mb-0 fw-semibold">Akun Free - Batas Tugas</h6>
-                    <p class="text-secondary small mb-0">Kuota Terpakai: <strong class="text-info">{{ auth()->user()->tasks()->count() }}/5</strong>. Upgrade ke Premium untuk membuat tugas tanpa batas.</p>
+                    <p class="text-secondary small mb-0">Kuota Terpakai: <strong class="text-warning">{{ auth()->user()->tasks()->count() }}/5</strong>. Upgrade ke Premium untuk membuat tugas tanpa batas.</p>
                 </div>
             </div>
             <a href="{{ route('student.upgrade') }}" class="btn btn-sm btn-warning text-dark fw-bold mt-2 mt-sm-0 px-3 py-2"><i class="bi bi-crown-fill me-1"></i>Upgrade ke Premium</a>

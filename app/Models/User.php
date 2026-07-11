@@ -68,14 +68,14 @@ class User extends Authenticatable
     }
 
     /**
-     * Check if user can create another subject (Free max 3).
+     * Check if user can create another subject (Free max 5).
      */
     public function canCreateSubject(): bool
     {
         if ($this->is_premium) {
             return true;
         }
-        return $this->subjects()->count() < 3;
+        return $this->subjects()->count() < 5;
     }
 
     /**
