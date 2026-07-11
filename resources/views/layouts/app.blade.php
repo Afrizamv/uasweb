@@ -12,7 +12,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebar" class="offcanvas-md offcanvas-start sidebar px-0" tabindex="-1" aria-labelledby="sidebarLabel">
+            <nav id="sidebar" class="col-md-3 col-lg-2 offcanvas-md offcanvas-start sidebar px-0" tabindex="-1" aria-labelledby="sidebarLabel">
                 <div class="position-sticky pt-3">
                     <button type="button" class="btn-close btn-close-white d-md-none position-absolute top-0 end-0 m-3" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
                     <div class="px-4 py-3 mb-4 border-bottom border-secondary border-opacity-25 text-center">
