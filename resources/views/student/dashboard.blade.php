@@ -17,7 +17,7 @@
     <!-- Stats Cards Row -->
     <div class="row g-3 mb-4">
         <!-- Subjects Count -->
-        <div class="col-6 col-lg-4">
+        <div class="col-12 col-sm-4">
             <div class="card custom-card p-3 h-100">
                 <div class="d-flex align-items-center">
                     <div class="rounded-3 p-3 bg-primary-subtle text-primary me-3">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <!-- Total Tasks -->
-        <div class="col-6 col-lg-4">
+        <div class="col-12 col-sm-4">
             <div class="card custom-card p-3 h-100">
                 <div class="d-flex align-items-center">
                     <div class="rounded-3 p-3 bg-primary-subtle text-primary me-3">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <!-- Progress Tasks -->
-        <div class="col-6 col-lg-4">
+        <div class="col-12 col-sm-4">
             <div class="card custom-card p-3 h-100">
                 <div class="d-flex align-items-center">
                     <div class="rounded-3 p-3 bg-info-subtle text-info me-3">
@@ -115,7 +115,7 @@
             </div>
         </div>
         <!-- Deadline Hari Ini -->
-        <div class="col-6 col-lg-6">
+        <div class="col-12 col-md-6">
             <div class="card custom-card p-3 h-100">
                 <div class="d-flex align-items-center">
                     <div class="rounded-3 p-3 bg-danger-subtle text-danger me-3">
@@ -129,7 +129,7 @@
             </div>
         </div>
         <!-- Deadline Besok -->
-        <div class="col-6 col-lg-6">
+        <div class="col-12 col-md-6">
             <div class="card custom-card p-3 h-100">
                 <div class="d-flex align-items-center">
                     <div class="rounded-3 p-3 bg-info-subtle text-info me-3">

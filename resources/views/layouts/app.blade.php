@@ -12,9 +12,9 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse px-0">
+            <nav id="sidebar" class="offcanvas-md offcanvas-start sidebar px-0" tabindex="-1" aria-labelledby="sidebarLabel">
                 <div class="position-sticky pt-3">
+                    <button type="button" class="btn-close btn-close-white d-md-none position-absolute top-0 end-0 m-3" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
                     <div class="px-4 py-3 mb-4 border-bottom border-secondary border-opacity-25 text-center">
                         <span class="sidebar-brand d-flex align-items-center justify-content-center">
                             <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="me-2 rounded-circle" style="width: 28px; height: 28px; object-fit: cover;">
@@ -98,12 +98,14 @@
             <!-- Main Content Area -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 min-vh-100 d-flex flex-column">
                 <!-- Top Navbar -->
-                <header class="navbar navbar-light sticky-top bg-white flex-md-nowrap p-0 border-bottom shadow-sm mb-4">
-                    <button class="navbar-toggler position-absolute d-md-none collapsed m-2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 border-bottom shadow-sm mb-4">
                     <div class="w-100 px-4 py-3 d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0 text-secondary fw-semibold">@yield('page_title', 'Dashboard')</h4>
+                        <div class="d-flex align-items-center">
+                            <button class="navbar-toggler d-md-none border-0 p-0 me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <h4 class="mb-0 text-secondary fw-semibold">@yield('page_title', 'Dashboard')</h4>
+                        </div>
                         <div class="d-flex align-items-center">
                             <span class="me-3 d-none d-sm-inline fw-medium text-dark">
                                 {{ auth()->user()->name }} 
