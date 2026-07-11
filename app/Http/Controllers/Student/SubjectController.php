@@ -37,6 +37,11 @@ class SubjectController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->canCreateSubject()) {
+            return redirect()->route('student.subjects.index')
+                ->with('error', 'Batas maksimal mata kuliah untuk akun Free telah tercapai. Silakan upgrade ke Premium!');
+        }
+
         return view('student.subjects.create');
     }
 
@@ -45,6 +50,11 @@ class SubjectController extends Controller
      */
     public function store(SubjectRequest $request)
     {
+        if (!auth()->user()->canCreateSubject()) {
+            return redirect()->route('student.subjects.index')
+                ->with('error', 'Batas maksimal mata kuliah untuk akun Free telah tercapai. Silakan upgrade ke Premium!');
+        }
+
         auth()->user()->subjects()->create($request->validated());
 
         return redirect()->route('student.subjects.index')

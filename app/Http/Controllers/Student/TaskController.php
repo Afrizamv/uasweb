@@ -54,6 +54,11 @@ class TaskController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->canCreateTask()) {
+            return redirect()->route('student.tasks.index')
+                ->with('error', 'Batas maksimal tugas untuk akun Free telah tercapai. Silakan upgrade ke Premium!');
+        }
+
         $subjects = auth()->user()->subjects;
         return view('student.tasks.create', compact('subjects'));
     }
@@ -63,6 +68,11 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request)
     {
+        if (!auth()->user()->canCreateTask()) {
+            return redirect()->route('student.tasks.index')
+                ->with('error', 'Batas maksimal tugas untuk akun Free telah tercapai. Silakan upgrade ke Premium!');
+        }
+
         // Double check that the chosen subject belongs to the current user
         $subject = auth()->user()->subjects()->findOrFail($request->input('subject_id'));
 

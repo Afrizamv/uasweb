@@ -44,6 +44,10 @@ Route::middleware(['auth', 'role:student'])->prefix('student')->name('student.')
     // Reminders
     Route::get('/reminders', [StudentReminder::class, 'index'])->name('reminders.index');
     Route::post('/reminders/{reminder}/complete', [StudentReminder::class, 'complete'])->name('reminders.complete');
+    
+    // Upgrade / Pricing
+    Route::get('/upgrade', [StudentDashboard::class, 'pricing'])->name('upgrade');
+    Route::post('/upgrade', [StudentDashboard::class, 'upgrade'])->name('upgrade.process');
 });
 
 // Admin Routes

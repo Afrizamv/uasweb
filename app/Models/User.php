@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'role',
         'photo',
+        'is_premium',
     ];
 
     /**
@@ -46,6 +47,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_premium' => 'boolean',
         ];
     }
 
@@ -63,6 +65,28 @@ class User extends Authenticatable
     public function isStudent(): bool
     {
         return $this->role === 'student';
+    }
+
+    /**
+     * Check if user can create another subject (Free max 3).
+     */
+    public function canCreateSubject(): bool
+    {
+        if ($this->is_premium) {
+            return true;
+        }
+        return $this->subjects()->count() < 3;
+    }
+
+    /**
+     * Check if user can create another task (Free max 5).
+     */
+    public function canCreateTask(): bool
+    {
+        if ($this->is_premium) {
+            return true;
+        }
+        return $this->tasks()->count() < 5;
     }
 
     /**

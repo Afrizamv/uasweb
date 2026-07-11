@@ -49,6 +49,11 @@
                                     <i class="bi bi-bell me-2"></i>Reminder
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::is('student.upgrade') ? 'active' : '' }}" href="{{ route('student.upgrade') }}">
+                                    <i class="bi bi-crown me-2 text-warning"></i>{{ auth()->user()->is_premium ? 'Premium Plan' : 'Upgrade Premium' }}
+                                </a>
+                            </li>
                         @else
                             <li class="nav-item">
                                 <a class="nav-link {{ Route::is('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
@@ -93,7 +98,17 @@
                     <div class="w-100 px-4 py-3 d-flex justify-content-between align-items-center">
                         <h4 class="mb-0 text-secondary fw-semibold">@yield('page_title', 'Dashboard')</h4>
                         <div class="d-flex align-items-center">
-                            <span class="me-3 d-none d-sm-inline fw-medium text-dark">{{ auth()->user()->name }} <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill small px-2 py-1 ms-1 text-capitalize">{{ auth()->user()->role }}</span></span>
+                            <span class="me-3 d-none d-sm-inline fw-medium text-dark">
+                                {{ auth()->user()->name }} 
+                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill small px-2 py-1 ms-1 text-capitalize">{{ auth()->user()->role }}</span>
+                                @if(auth()->user()->isStudent())
+                                    @if(auth()->user()->is_premium)
+                                        <span class="badge bg-warning text-dark border border-warning rounded-pill small px-2.5 py-1 ms-1"><i class="bi bi-crown-fill me-1"></i>Premium</span>
+                                    @else
+                                        <a href="{{ route('student.upgrade') }}" class="badge bg-secondary-subtle text-secondary border border-secondary rounded-pill small px-2.5 py-1 ms-1 text-decoration-none"><i class="bi bi-star me-1"></i>Upgrade Free</a>
+                                    @endif
+                                @endif
+                            </span>
                             @if(auth()->user()->photo)
                                 <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="Avatar" class="avatar-img">
                             @else

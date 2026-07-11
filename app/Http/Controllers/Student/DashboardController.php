@@ -130,4 +130,34 @@ class DashboardController extends Controller
             'remindersList'
         ));
     }
+
+    /**
+     * Show the pricing page.
+     */
+    public function pricing()
+    {
+        $user = auth()->user();
+        $subjectsCount = $user->subjects()->count();
+        $tasksCount = $user->tasks()->count();
+
+        return view('student.pricing', compact('user', 'subjectsCount', 'tasksCount'));
+    }
+
+    /**
+     * Process simulated upgrade/downgrade of premium status.
+     */
+    public function upgrade(Request $request)
+    {
+        $user = auth()->user();
+        $isPremium = $request->boolean('is_premium');
+
+        $user->is_premium = $isPremium;
+        $user->save();
+
+        $message = $isPremium
+            ? 'Akun Anda berhasil ditingkatkan ke Premium! Nikmati akses tanpa batas.'
+            : 'Akun Anda berhasil diturunkan ke akun Free.';
+
+        return redirect()->route('student.upgrade')->with('success', $message);
+    }
 }

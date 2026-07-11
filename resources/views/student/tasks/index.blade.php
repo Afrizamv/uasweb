@@ -2,6 +2,21 @@
     @section('title', 'Daftar Tugas')
     @section('page_title', 'Manajemen Tugas Kuliah')
 
+    @if(!auth()->user()->is_premium)
+        <div class="alert alert-info border-0 rounded-4 d-flex flex-wrap justify-content-between align-items-center mb-4 p-3" style="background: rgba(14, 165, 233, 0.1) !important; border: 1px solid rgba(14, 165, 233, 0.2) !important;">
+            <div class="d-flex align-items-center">
+                <div class="rounded-circle p-2 bg-info-subtle text-info me-3">
+                    <i class="bi bi-info-circle-fill fs-5"></i>
+                </div>
+                <div>
+                    <h6 class="text-white mb-0 fw-semibold">Akun Free - Batas Tugas</h6>
+                    <p class="text-secondary small mb-0">Kuota Terpakai: <strong class="text-info">{{ auth()->user()->tasks()->count() }}/5</strong>. Upgrade ke Premium untuk membuat tugas tanpa batas.</p>
+                </div>
+            </div>
+            <a href="{{ route('student.upgrade') }}" class="btn btn-sm btn-warning text-dark fw-bold mt-2 mt-sm-0 px-3 py-2"><i class="bi bi-crown-fill me-1"></i>Upgrade ke Premium</a>
+        </div>
+    @endif
+
     <!-- Search & Filters -->
     <div class="card border-0 rounded-4 shadow-sm p-4 mb-4">
         <form action="{{ route('student.tasks.index') }}" method="GET">
